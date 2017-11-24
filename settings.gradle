@@ -1,1 +1,1 @@
-include ':app'
+include ':app', ':businesshome', ':businesswidget', ':businessme', ':basiclib', ':widgetlib'

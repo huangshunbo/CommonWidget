@@ -3,7 +3,14 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/CommonWidget.iml" filepath="$PROJECT_DIR$/CommonWidget.iml" />
+      <module fileurl="file://E:\study_workspace\CommonWidget\CommonWidget.iml" filepath="E:\study_workspace\CommonWidget\CommonWidget.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://E:\study_workspace\CommonWidget\app\app.iml" filepath="E:\study_workspace\CommonWidget\app\app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/basiclib/basiclib.iml" filepath="$PROJECT_DIR$/basiclib/basiclib.iml" />
+      <module fileurl="file://$PROJECT_DIR$/businesshome/businesshome.iml" filepath="$PROJECT_DIR$/businesshome/businesshome.iml" />
+      <module fileurl="file://$PROJECT_DIR$/businessme/businessme.iml" filepath="$PROJECT_DIR$/businessme/businessme.iml" />
+      <module fileurl="file://$PROJECT_DIR$/businesswidget/businesswidget.iml" filepath="$PROJECT_DIR$/businesswidget/businesswidget.iml" />
+      <module fileurl="file://$PROJECT_DIR$/widgetlib/widgetlib.iml" filepath="$PROJECT_DIR$/widgetlib/widgetlib.iml" />
     </modules>
   </component>
 </project>

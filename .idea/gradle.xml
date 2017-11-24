@@ -9,6 +9,11 @@
           <set>
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/app" />
+            <option value="$PROJECT_DIR$/basiclib" />
+            <option value="$PROJECT_DIR$/businesshome" />
+            <option value="$PROJECT_DIR$/businessme" />
+            <option value="$PROJECT_DIR$/businesswidget" />
+            <option value="$PROJECT_DIR$/widgetlib" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />
