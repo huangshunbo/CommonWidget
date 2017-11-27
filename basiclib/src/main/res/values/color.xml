@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--规范-->
+    <!--默认status bar颜色-->
+    <color name="default_status_bar_color">#cead78</color>
+    <!--文字规范-->
+    <color name="common_txt_type1_gload">#b17e47</color>
+    <color name="common_txt_type2_black">#333333</color>
+    <color name="common_txt_type3_black">#666666</color>
+    <color name="common_txt_type4_gray9">#999999</color>
+    <color name="common_txt_type5_grayc">#cccccc</color>
+    <color name="common_txt_type6_red">#fa6419</color>
+    <color name="common_txt_type7_white">#ffffff</color>
+    <color name="common_txt_type8_black">#000000</color>
+    <!--button规范-->
+    <color name="common_button_gload_unpress">#cead78</color>
+    <color name="common_button_gload_press">#ab8652</color>
+    <color name="common_button_gray_unactive">#cacacc</color>
+    <!--背景-->
+    <color name="common_background">#f7f7f7</color>
+
+    <!--常规颜色-->
+    <color name="black">#FF000000</color>
+</resources>

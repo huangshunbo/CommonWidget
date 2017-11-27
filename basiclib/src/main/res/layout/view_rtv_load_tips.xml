@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fadingEdge="none"
+    android:scrollbars="none"
+    android:clickable="true">
+
+    <LinearLayout
+        android:id="@+id/ll_main"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_gravity="center"
+        android:layout_marginTop="-30dp">
+
+        <ImageView
+            android:id="@+id/imgLogo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:adjustViewBounds="true"
+            android:layout_marginBottom="24dp"
+            android:layout_marginTop="60dp"
+            android:src="@drawable/empty_data_server" />
+
+        <TextView
+            android:id="@+id/tvTips"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:gravity="center"
+            android:text="@string/rtv_service_tips"
+            android:textColor="@color/common_txt_type2_black"
+            android:layout_marginBottom="12dp"
+            android:textSize="17sp" />
+
+        <TextView
+            android:id="@+id/tvTipsDesc1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="2dp"
+            android:gravity="center"
+            android:text="@string/rtv_click_screen"
+            android:textColor="@color/common_txt_type2_black"
+            android:textSize="13sp"/>
+
+        <ImageView
+            android:id="@+id/spinnerImageView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:background="@drawable/rtv_loading_anim"
+            android:visibility="invisible" />
+    </LinearLayout>
+
+</ScrollView>
