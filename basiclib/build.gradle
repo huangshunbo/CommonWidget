@@ -13,6 +13,10 @@ android {
 
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
 
+        ndk {
+            // 设置支持的SO库架构
+            abiFilters 'armeabi' //, 'x86', 'armeabi-v7a', 'x86_64', 'arm64-v8a'
+        }
     }
 
     buildTypes {
@@ -20,6 +24,10 @@ android {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
+    }
+
+    sourceSets {
+        main.jniLibs.srcDirs = ['libs']
     }
 
 }
@@ -31,6 +39,10 @@ dependencies {
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:0.5'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:2.2.2'
-    compile 'com.apkfuns.logutils:library:1.5.1.1'
     compile 'com.android.support:design:26.0.0'
+
+//    日志工具LogUtils
+    compile 'com.apkfuns.logutils:library:1.5.1.1'
+//    bug处理 Bugly
+    compile 'com.tencent.bugly:crashreport:latest.release'
 }

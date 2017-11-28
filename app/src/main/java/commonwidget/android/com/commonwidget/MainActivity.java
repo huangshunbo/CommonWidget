@@ -8,6 +8,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.TextView;
 
+import com.tencent.bugly.crashreport.CrashReport;
+
 import commonwidget.android.com.basiclib.log.LogUtil;
 import commonwidget.android.com.basiclib.ui.inflate.ELayout;
 import commonwidget.android.com.basiclib.ui.inflate.EWidget;
@@ -29,6 +31,7 @@ public class MainActivity extends AbstractMvpActivity implements IMainActivityCo
         tvHello.setText("Hello World");
         showDataLoading();
         mainPresenter.requestData();
+        CrashReport.testJavaCrash();
     }
 
     @Override
