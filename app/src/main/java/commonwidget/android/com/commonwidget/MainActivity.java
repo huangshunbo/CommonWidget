@@ -3,11 +3,13 @@ package commonwidget.android.com.commonwidget;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
-public class MainActivity extends AppCompatActivity {
+import com.commonwidget.basic.activity.AbstractMvpActivity;
+
+public class MainActivity extends AbstractMvpActivity {
+
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+    public int initView() {
+        return R.layout.activity_main;
     }
 }
