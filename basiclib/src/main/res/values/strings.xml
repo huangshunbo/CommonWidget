@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">basicLib</string>
+    <string name="rtv_service_tips">服务器异常，加载出错了</string>
+    <string name="rtv_click_screen">点击屏幕，重新加载</string>
+    <string name="rtv_click_refresh_tip">点我刷新试试看</string>
+    <string name="rtv_not_net">网络不给力，请稍后再试</string>
+    <string name="rtv_not_data">没有相关记录</string>
 </resources>
