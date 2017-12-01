@@ -1,0 +1,32 @@
+
+project.ext {
+    android = [
+            compileSdkVersion   :   26,
+            buildToolsVersion   :   '26.0.1',
+            applicationId       :   "com.paisheng.pp",
+            minSdkVersion       :   14,
+            targetSdkVersion    :   23,
+            versionCode         :   19,
+            versionName         :   "2.0.1"
+    ]
+
+    common = [
+            supportVersion  :   "26.0.0-beta1",
+            junit           :   "4.12",
+    ]
+
+    dependencies = [
+            newlens    :   "2.7.0",
+            logutils   :    "1.5.1.1",
+            eventbus   :    "3.1.1",
+            arouter_neenbedankt:    "1.4",
+            arouter    :    "1.2.4",
+            arouter_compiler:    "1.1.4",
+            okio        :   "1.13.0",
+            okhttp      :   "3.9.1",
+            fastjson    :   "1.1.67.android",
+            glide       :   "4.3.1",
+            greendao    :   "3.2.2",
+    ]
+
+}

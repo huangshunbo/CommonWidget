@@ -3,11 +3,11 @@
 日志--LogUtils
 bug处理--bugly
 性能控制
-消息处理
-路由跳转
-I/O操作
-网络
-数据库
+消息处理--EventBus
+路由跳转--Arouter
+I/O操作--Okio
+网络--OkHttp
+数据库--greenDao
 json解析
 加解密
 依赖注入

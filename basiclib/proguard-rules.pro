@@ -21,3 +21,11 @@
 #-renamesourcefileattribute SourceFile
 -dontwarn com.tencent.bugly.**
 -keep public class com.tencent.bugly.**{*;}
+
+-keep class com.networkbench.** { *; }
+-dontwarn com.networkbench.**
+-keepattributes Exceptions, Signature, InnerClasses
+
+-keepattributes SourceFile,LineNumberTable
+
+ -keep public class com.alibaba.android.arouter.routes.**{*;}

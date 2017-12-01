@@ -1,21 +1,27 @@
 apply plugin: 'com.android.library'
-
+//性能管理听云sdk
+apply plugin: 'newlens'
+//数据库操作greenDao
+apply plugin: 'org.greenrobot.greendao'
 android {
     compileSdkVersion 26
 
-
-
     defaultConfig {
-        minSdkVersion 21
-        targetSdkVersion 26
-        versionCode 1
-        versionName "1.0"
+        minSdkVersion rootProject.ext.android["minSdkVersion"]
+        targetSdkVersion rootProject.ext.android["targetSdkVersion"]
+        versionCode rootProject.ext.android["versionCode"]
+        versionName rootProject.ext.android["versionName"]
 
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
 
         ndk {
             // 设置支持的SO库架构
             abiFilters 'armeabi' //, 'x86', 'armeabi-v7a', 'x86_64', 'arm64-v8a'
+        }
+        javaCompileOptions {
+            annotationProcessorOptions {
+                arguments = [ moduleName : project.getName() ]
+            }
         }
     }
 
@@ -32,17 +38,55 @@ android {
 
 }
 
-dependencies {
-    implementation fileTree(dir: 'libs', include: ['*.jar'])
+buildscript {
+    repositories {
+        jcenter()
+        mavenCentral()
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:3.0.0'
+//      性能管理听云sdk
+        classpath "com.networkbench.newlens.agent.android:agent-gradle-plugin:${rootProject.ext.dependencies["newlens"]}"
+//        数据库操作 greenDao
+        classpath "org.greenrobot:greendao-gradle-plugin:${rootProject.ext.dependencies["greendao"]}"
+    }
+}
+//数据库操作 greenDao
+greendao {
+    schemaVersion 1//指定数据库版本号，更新操作会用到;
+    daoPackage 'com.android.basiclib.data.gen'//自动生成的dao的包名，包名默认是entity所在的包；
+    targetGenDir 'src/main/java'//生成数据库文件的目录
+}
 
-    implementation 'com.android.support:appcompat-v7:26.0.0-beta1'
-    testImplementation 'junit:junit:4.12'
-    androidTestImplementation 'com.android.support.test:runner:0.5'
-    androidTestImplementation 'com.android.support.test.espresso:espresso-core:2.2.2'
-    compile 'com.android.support:design:26.0.0'
+dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation "com.android.support:appcompat-v7:${rootProject.ext.common["supportVersion"]}"
+    testImplementation "junit:junit:${rootProject.ext.common["junit"]}"
+    compile "com.android.support:design:${rootProject.ext.common["supportVersion"]}"
 
 //    日志工具LogUtils
-    compile 'com.apkfuns.logutils:library:1.5.1.1'
+    compile "com.apkfuns.logutils:library:${rootProject.ext.dependencies["logutils"]}"
 //    bug处理 Bugly
     compile 'com.tencent.bugly:crashreport:latest.release'
+//    性能管理 听云SDK
+    compile "com.networkbench.newlens.agent.android:nbs.newlens.agent:${rootProject.ext.dependencies["newlens"]}"
+//    消息处理 eventBus
+    compile "org.greenrobot:eventbus:${rootProject.ext.dependencies["eventbus"]}"
+//    路由跳转Arouter
+    compile "com.alibaba:arouter-api:${rootProject.ext.dependencies["arouter"]}"
+    annotationProcessor "com.alibaba:arouter-compiler:${rootProject.ext.dependencies["arouter_compiler"]}"
+//    IO操作 Okio
+    compile "com.squareup.okio:okio:${rootProject.ext.dependencies["okio"]}"
+//    网络操作 okHttp
+    compile "com.squareup.okhttp3:okhttp:${rootProject.ext.dependencies["okhttp"]}"
+//    图片加载 Glide
+    compile "com.github.bumptech.glide:glide:${rootProject.ext.dependencies["glide"]}"
+    annotationProcessor "com.github.bumptech.glide:compiler:${rootProject.ext.dependencies["glide"]}"
+//    网络请求使用OkHttp
+    compile 'com.github.bumptech.glide:okhttp-integration:1.5.0@aar'
+//    json解析 fastjson
+    compile "com.alibaba:fastjson:${rootProject.ext.dependencies["fastjson"]}"
+//    数据库操作 greenDao
+    compile "org.greenrobot:greendao:${rootProject.ext.dependencies["greendao"]}"
 }

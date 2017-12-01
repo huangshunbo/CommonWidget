@@ -2,7 +2,7 @@
 <resources>
     <!--规范-->
     <!--默认status bar颜色-->
-    <color name="default_status_bar_color">#cead78</color>
+    <color name="default_status_bar_color">#FF00ff00</color>
     <!--文字规范-->
     <color name="common_txt_type1_gload">#b17e47</color>
     <color name="common_txt_type2_black">#333333</color>
