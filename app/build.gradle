@@ -20,7 +20,6 @@ android {
 
 
 dependencies {
-    implementation fileTree(dir: 'libs', include: ['*.jar'])
     compile project(':businesshome')
     compile project(':businesswidget')
     compile project(':businessme')
@@ -28,8 +27,6 @@ dependencies {
     compile project(':widgetlib')
 
     compile fileTree(dir: 'libs', include: ['*.jar'])
-    implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation "com.android.support:appcompat-v7:${rootProject.ext.common["supportVersion"]}"
-    testImplementation "junit:junit:${rootProject.ext.common["junit"]}"
     compile "com.android.support:design:${rootProject.ext.common["supportVersion"]}"
 }
