@@ -42,21 +42,6 @@ public class MainActivity extends AbstractMvpActivity implements IMainActivityCo
 
 //        startActivity(ArouterTestActivity.class);
 //        ARouter.getInstance().build(ArouterTestActivity.AROUTER_TAG).navigation();
-
-        Student student = new Student("huangshunbo",27);
-        DStudent dStudent = DaoFactory.getInstace(DStudent.class);
-        dStudent.insert(student);
-        LogUtil.d("GreenDao",dStudent.loadAll());
-        student.setAge(100);
-        dStudent.update(student);
-        LogUtil.d("GreenDao",dStudent.loadAll());
-        dStudent.delete(student);
-        LogUtil.d("GreenDao",dStudent.loadAll());
-
-        DLocalStorage.add("1","huangshunbo");
-        LogUtil.d(DLocalStorage.loadAll());
-        DLocalStorage.add("1","hsb");
-        LogUtil.d(DLocalStorage.loadAll());
     }
 
     @Override
