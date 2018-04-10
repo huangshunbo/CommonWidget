@@ -2,7 +2,6 @@ apply from: "dependencies.gradle"
 buildscript {
     
     repositories {
-        google()
         jcenter()
         mavenCentral()
     }
