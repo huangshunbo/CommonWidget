@@ -27,6 +27,6 @@ dependencies {
     compile project(':widgetlib')
 
     compile fileTree(dir: 'libs', include: ['*.jar'])
-    implementation "com.android.support:appcompat-v7:${rootProject.ext.common["supportVersion"]}"
+    compile "com.android.support:appcompat-v7:${rootProject.ext.common["supportVersion"]}"
     compile "com.android.support:design:${rootProject.ext.common["supportVersion"]}"
 }
