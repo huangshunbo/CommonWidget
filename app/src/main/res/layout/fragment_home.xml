@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/activity_gesturepwd_draw_bg"
+    android:orientation="vertical"
+    android:gravity="center_horizontal">
+    <cn.bingoogolapple.bgabanner.BGABanner
+        android:id="@+id/banner_guide_content"
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        app:banner_pageChangeDuration="1000"
+        app:banner_pointAutoPlayAble="false"
+        app:banner_pointContainerBackground="@android:color/transparent"
+        app:banner_pointDrawable="@drawable/bga_banner_selector_point_hollow"
+        app:banner_pointTopBottomMargin="15dp"
+        app:banner_transitionEffect="alpha" />
+    <com.android.widgetlib.fold.TitleFlodView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:title_size="20sp"
+        app:title_txt="折叠标题">
+        <TextView
+            android:text="折叠内容折叠内容折叠内容折叠内容折叠内容折叠内容折叠内容折叠内容折叠内容折叠内容折叠内容折叠内容折叠内容折叠内容折叠内容折叠内容"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="20dp"/>
+    </com.android.widgetlib.fold.TitleFlodView>
+
+
+
+</LinearLayout>

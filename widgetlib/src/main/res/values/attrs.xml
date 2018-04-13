@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="NumberRedView">
+        <attr name="dot_radius" format="dimension" />
+        <attr name="dot_color" format="color|reference" />
+        <attr name="dot_font_color" format="color|reference" />
+        <attr name="dot_font_size" format="dimension" />
+    </declare-styleable>
+    <declare-styleable name="TitleFlodView">
+        <attr name="title_txt" format="string"/>
+        <attr name="title_size" format="dimension"/>
+        <attr name="title_color" format="color"/>
+    </declare-styleable>
+    <declare-styleable name="LinearWrapLayout">
+        <attr name="horizontal_spacing" format="dimension" />
+        <attr name="vertical_spacing" format="dimension" />
+        <attr name="child_width" format="dimension" />
+        <attr name="child_height" format="dimension" />
+    </declare-styleable>
+    <declare-styleable name="PullUpToLoadMore">
+        <attr name="first_page" format="reference" />
+        <attr name="second_page" format="reference" />
+    </declare-styleable>
+    <declare-styleable name="DancingNumberView">
+        <attr name="dnv_duration" format="integer"/>
+        <attr name="dnv_format" format="string"/>
+    </declare-styleable>
+    <declare-styleable name="TitleView">
+        <attr name="back_cion" format="reference"/>
+        <attr name="back_txt" format="string"/>
+        <attr name="title" format="string"/>
+        <attr name="right_cion1" format="reference"/>
+        <attr name="right_cion2" format="reference"/>
+    </declare-styleable>
+</resources>

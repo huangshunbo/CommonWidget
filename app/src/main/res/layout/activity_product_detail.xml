@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <com.android.widgetlib.tbdetail.DragLayout
+        android:id="@+id/draglayout_content"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <include layout="@layout/layout_product_detail_first_page"/>
+        <include layout="@layout/layout_product_detail_second_page"/>
+    </com.android.widgetlib.tbdetail.DragLayout>
+</LinearLayout>

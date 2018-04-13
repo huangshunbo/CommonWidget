@@ -4,7 +4,7 @@ apply plugin: 'newlens'
 //数据库操作greenDao
 apply plugin: 'org.greenrobot.greendao'
 android {
-    compileSdkVersion 26
+    compileSdkVersion rootProject.ext.android["compileSdkVersion"]
 
     defaultConfig {
         minSdkVersion rootProject.ext.android["minSdkVersion"]
@@ -36,6 +36,8 @@ android {
         main.jniLibs.srcDirs = ['libs']
     }
 
+
+
 }
 
 buildscript {
@@ -62,7 +64,6 @@ dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation "com.android.support:appcompat-v7:${rootProject.ext.common["supportVersion"]}"
-    testImplementation "junit:junit:${rootProject.ext.common["junit"]}"
     compile "com.android.support:design:${rootProject.ext.common["supportVersion"]}"
 
 //    日志工具LogUtils
@@ -89,4 +90,11 @@ dependencies {
     compile "com.alibaba:fastjson:${rootProject.ext.dependencies["fastjson"]}"
 //    数据库操作 greenDao
     compile "org.greenrobot:greendao:${rootProject.ext.dependencies["greendao"]}"
+//    二维码 zxing
+    compile 'com.google.zxing:core:3.3.0'
+    compile 'cn.bingoogolapple:bga-qrcodecore:1.1.9@aar'
+    compile 'cn.bingoogolapple:bga-zxing:1.1.9@aar'
+//    权限请求
+//    compile 'pub.devrel:easypermissions:1.0.0'
+
 }

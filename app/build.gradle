@@ -1,14 +1,35 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 26
+    compileSdkVersion rootProject.ext.android["compileSdkVersion"]
     defaultConfig {
-        applicationId "commonwidget.android.com.commonwidget"
+        applicationId "com.android.commonwidget"
         minSdkVersion rootProject.ext.android["minSdkVersion"]
         targetSdkVersion rootProject.ext.android["targetSdkVersion"]
         versionCode rootProject.ext.android["versionCode"]
         versionName rootProject.ext.android["versionName"]
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+
+        javaCompileOptions {
+            annotationProcessorOptions {
+                arguments = [ moduleName : project.getName() ]
+            }
+        }
+        ndk {
+            //选择要添加的对应cpu类型的.so库。
+            abiFilters 'armeabi', 'armeabi-v7a', 'arm64-v8a'
+            // 还可以添加 'x86', 'x86_64', 'mips', 'mips64'
+        }
+
+        manifestPlaceholders = [
+                PKGNAME       : applicationId,
+                JPUSH_PKGNAME : applicationId,
+                JPUSH_APPKEY : "db529335e36c19b71ea6400b", //JPush上注册的包名对应的appkey.
+                JPUSH_CHANNEL : "developer-default", //暂时填写默认值即可.
+                "BUGGLY_APPID"  : "d908cd5044",
+                "BAIDUMOB_ID"   : "63c6b07f7a",
+                "UMENG_APPKEY"  : "5a2a6400a40fa37ba90000cd",
+        ]
     }
     buildTypes {
         release {
@@ -16,20 +37,27 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+
+
 }
 
 
 dependencies {
-    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
     compile project(':businesshome')
     compile project(':businesswidget')
     compile project(':businessme')
     compile project(':basiclib')
     compile project(':widgetlib')
+    compile fileTree(include: ['*.jar'], dir: 'libs')
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
 
-    compile fileTree(dir: 'libs', include: ['*.jar'])
-    implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation "com.android.support:appcompat-v7:${rootProject.ext.common["supportVersion"]}"
     testImplementation "junit:junit:${rootProject.ext.common["junit"]}"
-    compile "com.android.support:design:${rootProject.ext.common["supportVersion"]}"
+//    compile "com.android.support:design:${rootProject.ext.common["supportVersion"]}"
+    annotationProcessor "com.alibaba:arouter-compiler:${rootProject.ext.dependencies["arouter_compiler"]}"
+    compile 'cn.jiguang.sdk:jpush:3.0.9'
+    compile 'cn.jiguang.sdk:jcore:1.1.7'
+    implementation 'cn.bingoogolapple:bga-banner:2.1.9@aar'
+    compile 'com.github.JakeWharton:ViewPagerIndicator:2.4.1'
 }

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+
+
+    <!--其他-->
+    <color name="font_green">#29CA88</color>
+    <color name="font_gray">#8c8c8c</color>
+    <color name="golden">#d2b167</color>
+    <!--自定义键盘的所有颜色值-->
+    <color name="default_keyboard_bg">#999999</color>
+    <color name="default_keyTextColor">@color/black</color>
+    <color name="default_key_pressed">@color/golden</color>
+    <color name="default_key_normal">@color/white</color>
+    <color name="default_keyShadowColor">@color/white</color>
+    <color name="default_keyPreviewTextColor">@color/golden</color>
+
+</resources>

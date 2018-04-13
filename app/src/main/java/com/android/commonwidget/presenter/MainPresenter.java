@@ -19,6 +19,7 @@ public class MainPresenter extends BasePresenter<IMainActivityContract.IView>
                 public void onSuccess(User o) {
                     LogUtil.d("requestData onSuccess");
                     LogUtil.d(o);
+                    getView().showData();
                 }
 
                 @Override
@@ -26,7 +27,7 @@ public class MainPresenter extends BasePresenter<IMainActivityContract.IView>
 
                 }
             });
-            getView().showData();
+
         }
     }
 }

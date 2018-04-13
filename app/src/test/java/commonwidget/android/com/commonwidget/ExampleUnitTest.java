@@ -1,4 +1,4 @@
-package commonwidget.android.com.commonwidget;
+package com.android.commonwidget;
 
 import org.junit.Test;
 

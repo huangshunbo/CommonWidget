@@ -2,6 +2,7 @@ package com.android.basiclib.data;
 
 import com.android.basiclib.bean.Student;
 import com.android.basiclib.data.gen.StudentDao;
+import com.android.basiclib.data.manager.DaoManager;
 
 import java.util.List;
 

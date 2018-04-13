@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <com.android.widgetlib.keyboard.EditView
+        android:id="@+id/activity_keyboard_edit"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="50dp"
+        android:gravity="center"
+        android:hint="身份证号: "
+        android:textSize="24sp"
+        android:textColor="@android:color/black"
+        android:textColorHint="#BABABA"/>
+
+    <com.android.widgetlib.keyboard.SKeyboardView
+        android:id="@+id/keyboard_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="@color/default_keyboard_bg"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:keyBackground="@drawable/selector_keyboard_key"
+        android:keyPreviewHeight="@dimen/default_keyPreviewHeight"
+        android:keyPreviewLayout="@layout/view_keyboard_preview"
+        android:keyTextColor="@color/default_keyTextColor"
+        android:keyTextSize="@dimen/default_keyTextSize"
+        android:labelTextSize="@dimen/default_labelTextSize"
+        android:paddingBottom="8dp"
+        android:paddingTop="8dp"
+        android:shadowColor="@color/default_keyShadowColor"
+        android:shadowRadius="0.0"
+        android:visibility="gone" />
+</RelativeLayout>

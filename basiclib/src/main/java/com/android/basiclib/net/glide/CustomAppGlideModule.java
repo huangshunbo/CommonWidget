@@ -19,5 +19,10 @@ public class CustomAppGlideModule extends AppGlideModule {
         //磁盘缓存
 //        builder.setDiskCache(new InternalCacheDiskCacheFactory(context, cacheSizeBytes));
     }
+
+    @Override
+    public boolean isManifestParsingEnabled() {
+        return false;
+    }
 }
 

@@ -2,16 +2,16 @@
 project.ext {
     android = [
             compileSdkVersion   :   26,
-            buildToolsVersion   :   '26.0.1',
-            applicationId       :   "com.paisheng.pp",
+            buildToolsVersion   :   '26.0.2',
+            applicationId       :   "com.android.commonwidget",
             minSdkVersion       :   14,
-            targetSdkVersion    :   23,
-            versionCode         :   19,
-            versionName         :   "2.0.1"
+            targetSdkVersion    :   26,
+            versionCode         :   1,
+            versionName         :   "1.0.1"
     ]
 
     common = [
-            supportVersion  :   "26.0.0-beta1",
+            supportVersion  :   "25.2.0",
             junit           :   "4.12",
     ]
 

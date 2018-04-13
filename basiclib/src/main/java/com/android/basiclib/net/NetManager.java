@@ -1,15 +1,22 @@
 package com.android.basiclib.net;
 
 import android.os.Environment;
+import android.text.TextUtils;
 
+import com.android.basiclib.MApplication;
 import com.android.basiclib.cryption.AbstractCryption;
 import com.android.basiclib.cryption.NormalCryption;
 import com.android.basiclib.net.callback.AbstractCallBack;
 import com.android.basiclib.net.exception.ApiException;
 import com.android.basiclib.net.util.NetUtils;
+
+import java.io.BufferedInputStream;
+import java.io.BufferedReader;
+import java.io.ByteArrayInputStream;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.security.KeyStore;
 import java.security.SecureRandom;
 import java.security.cert.CertificateFactory;
@@ -31,10 +38,15 @@ import okhttp3.CookieJar;
 import okhttp3.FormBody;
 import okhttp3.Headers;
 import okhttp3.HttpUrl;
+import okhttp3.Interceptor;
+import okhttp3.MediaType;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.RequestBody;
 import okhttp3.Response;
+import okhttp3.ResponseBody;
+import okio.BufferedSource;
+import okio.Okio;
 
 /*
 *
@@ -43,6 +55,7 @@ import okhttp3.Response;
 * 3.Request类型 Callback类型
 * 4.缓存 OkHttp只对get请求做缓存，post不会缓存
 * 5.加解密
+* 6.支持本地mock数据
 * */
 public class NetManager implements Callback{
 
@@ -65,19 +78,13 @@ public class NetManager implements Callback{
     private AbstractCryption abstractCryption = new NormalCryption();
     private boolean useCookie = false;
 
-    private static NetManager INSTANCE = null;
+    private String localMockData = "";
+
     private NetManager(){
         okHttpClient = new OkHttpClient();
     }
-    public static NetManager getInstance(){
-        if (INSTANCE == null){
-            synchronized (NetManager.class){
-                if(INSTANCE == null){
-                    INSTANCE = new NetManager();
-                }
-            }
-        }
-        return INSTANCE;
+    public static NetManager create(){
+        return new NetManager();
     }
 
     public NetManager get(String url){
@@ -197,11 +204,43 @@ public class NetManager implements Callback{
         }
 
     }
+    public NetManager addLocalMockData(int rawId){
+        InputStream is = MApplication.application.getResources().openRawResource(rawId);
+        InputStreamReader read = new InputStreamReader(is);
+        BufferedReader br = new BufferedReader(read);
+        StringBuffer sb = new StringBuffer();
+        String s;
+        try {
+            while ((s = br.readLine()) != null) {
+                sb.append(s);
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        addLocalMockData(sb.toString());
+        return this;
+    }
+    public NetManager addLocalMockData(String mockData){
+        localMockData = mockData;
+        return this;
+    }
+    public Response executeSync() throws IOException {
+        buildConfig();
+        return okHttpClient.newCall(request).execute();
+    }
     public void execute(){
         execute(null);
     }
     public void execute(AbstractCallBack callback){
         abstractCallBack = callback;
+        buildConfig();
+        if(abstractCallBack != null){
+            abstractCallBack.onStart();
+        }
+        okHttpClient.newCall(request).enqueue(this);
+    }
+
+    private void buildConfig() {
         builder = new Request.Builder();
         if(type == REQUEST_TYPE.GET){
             builder.url(NetUtils.handleGetUrl(url,params));
@@ -237,11 +276,42 @@ public class NetManager implements Callback{
                 }
             }).build();
         }
-        if(abstractCallBack != null){
-            abstractCallBack.onStart();
+        if(!TextUtils.isEmpty(localMockData)){
+            mockResponse(localMockData);
         }
-        okHttpClient.newCall(request).enqueue(this);
     }
+
+    private void mockResponse(final String mockData) {
+        okHttpClient = okHttpClient.newBuilder().addNetworkInterceptor(new Interceptor() {
+            @Override
+            public Response intercept(Chain chain) throws IOException {
+                ResponseBody responseBody = new ResponseBody() {
+                    @Override
+                    public MediaType contentType() {
+                        return MediaType.parse("application/x-www-form-urlencoded");
+                    }
+
+                    @Override
+                    public long contentLength() {
+                        return mockData.length();
+                    }
+
+                    @Override
+                    public BufferedSource source() {
+                        return Okio.buffer(Okio.source(new ByteArrayInputStream(mockData.getBytes())));
+                    }
+                };
+                Response response = chain.proceed(request);
+                response = response.newBuilder()
+                        .code(200)
+                        .message("success")
+                        .body(responseBody)
+                        .build();
+                return response;
+            }
+        }).build();
+    }
+
     public void executeWithController(){
 
     }

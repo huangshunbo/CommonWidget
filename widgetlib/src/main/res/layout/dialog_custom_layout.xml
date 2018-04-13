@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent" android:background="@drawable/custiom_dialog_bg">
+    <TextView
+        android:id="@+id/custom_dialog_title"
+        android:layout_marginTop="30dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginBottom="7dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:textColor="#333333"
+        android:textSize="17sp"
+        android:lines="1"
+        tools:text="标题"/>
+    <TextView
+        android:id="@+id/custom_dialog_message"
+        android:layout_marginTop="7dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginBottom="30dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        tools:text="这是一个较长的2行消息体的小示例，为了达到两行的长度我就不得不废话了！"/>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:background="#999999"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <TextView
+            android:id="@+id/custom_dialog_cancel"
+            android:paddingTop="15dp"
+            android:paddingBottom="15dp"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textSize="17sp"
+            android:textColor="#999999"
+            tools:text="取消"
+            android:gravity="center"/>
+        <View
+            android:id="@+id/custom_dialog_line"
+            android:layout_width="0.5dp"
+            android:layout_height="match_parent"
+            android:background="#999999"/>
+        <TextView
+            android:id="@+id/custom_dialog_submit"
+            android:paddingTop="15dp"
+            android:paddingBottom="15dp"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textSize="17sp"
+            android:textColor="#028902"
+            tools:text="确定"
+            android:gravity="center"/>
+    </LinearLayout>
+</LinearLayout>

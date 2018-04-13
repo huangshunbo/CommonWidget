@@ -17,7 +17,7 @@ import com.bumptech.glide.integration.okhttp.OkHttpGlideModule;
 public class ImageNetUtil {
 
     public static void load(String url , ImageView imageView){
-        Glide.with(MApplication.application).load(url).into(imageView);
+        GlideApp.with(MApplication.application).load(url).into(imageView);
     }
     public static void load(String url , int placeholder, ImageView imageView){
         GlideApp.with(MApplication.application).load(url).placeholder(placeholder).into(imageView);

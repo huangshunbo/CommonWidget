@@ -1,0 +1,9 @@
+<resources>
+
+
+    <!--自定义键盘的所有尺寸-->
+    <dimen name="default_keyTextSize">26sp</dimen>
+    <dimen name="default_labelTextSize">24sp</dimen>
+    <dimen name="default_keyPreviewTextSize">42sp</dimen>
+    <dimen name="default_keyPreviewHeight">64sp</dimen>
+</resources>
