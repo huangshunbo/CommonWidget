@@ -2,17 +2,16 @@
 project.ext {
     android = [
             compileSdkVersion   :   26,
-            buildToolsVersion   :   '26.0.2',
+            buildToolsVersion   :   '26.0.1',
             applicationId       :   "com.android.commonwidget",
             minSdkVersion       :   14,
-            targetSdkVersion    :   26,
+            targetSdkVersion    :   23,
             versionCode         :   1,
             versionName         :   "1.0.1"
     ]
 
     common = [
-            supportVersion  :   "25.2.0",
-            junit           :   "4.12",
+            supportVersion  :   "26.1.0",
     ]
 
     dependencies = [

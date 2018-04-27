@@ -9,10 +9,10 @@
     <color name="golden">#d2b167</color>
     <!--自定义键盘的所有颜色值-->
     <color name="default_keyboard_bg">#999999</color>
-    <color name="default_keyTextColor">@color/black</color>
-    <color name="default_key_pressed">@color/golden</color>
-    <color name="default_key_normal">@color/white</color>
-    <color name="default_keyShadowColor">@color/white</color>
-    <color name="default_keyPreviewTextColor">@color/golden</color>
+    <color name="default_keyTextColor">#FF000000</color>
+    <color name="default_key_pressed">#eacd78</color>
+    <color name="default_key_normal">#FFFFFFFF</color>
+    <color name="default_keyShadowColor">#FFFFFFFF</color>
+    <color name="default_keyPreviewTextColor">#eacd78</color>
 
 </resources>

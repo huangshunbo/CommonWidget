@@ -5,7 +5,7 @@ apply plugin: 'newlens'
 apply plugin: 'org.greenrobot.greendao'
 android {
     compileSdkVersion rootProject.ext.android["compileSdkVersion"]
-
+    buildToolsVersion rootProject.ext.android["buildToolsVersion"]
     defaultConfig {
         minSdkVersion rootProject.ext.android["minSdkVersion"]
         targetSdkVersion rootProject.ext.android["targetSdkVersion"]
@@ -62,8 +62,7 @@ greendao {
 
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
-    implementation fileTree(dir: 'libs', include: ['*.jar'])
-    implementation "com.android.support:appcompat-v7:${rootProject.ext.common["supportVersion"]}"
+    compile "com.android.support:appcompat-v7:${rootProject.ext.common["supportVersion"]}"
     compile "com.android.support:design:${rootProject.ext.common["supportVersion"]}"
 
 //    日志工具LogUtils

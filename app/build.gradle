@@ -2,6 +2,7 @@ apply plugin: 'com.android.application'
 
 android {
     compileSdkVersion rootProject.ext.android["compileSdkVersion"]
+    buildToolsVersion rootProject.ext.android["buildToolsVersion"]
     defaultConfig {
         applicationId "com.android.commonwidget"
         minSdkVersion rootProject.ext.android["minSdkVersion"]
@@ -43,21 +44,18 @@ android {
 
 
 dependencies {
-    implementation fileTree(include: ['*.jar'], dir: 'libs')
     compile project(':businesshome')
     compile project(':businesswidget')
     compile project(':businessme')
     compile project(':basiclib')
     compile project(':widgetlib')
     compile fileTree(include: ['*.jar'], dir: 'libs')
-    implementation fileTree(include: ['*.jar'], dir: 'libs')
 
-    implementation "com.android.support:appcompat-v7:${rootProject.ext.common["supportVersion"]}"
-    testImplementation "junit:junit:${rootProject.ext.common["junit"]}"
+    compile "com.android.support:appcompat-v7:${rootProject.ext.common["supportVersion"]}"
 //    compile "com.android.support:design:${rootProject.ext.common["supportVersion"]}"
     annotationProcessor "com.alibaba:arouter-compiler:${rootProject.ext.dependencies["arouter_compiler"]}"
     compile 'cn.jiguang.sdk:jpush:3.0.9'
     compile 'cn.jiguang.sdk:jcore:1.1.7'
-    implementation 'cn.bingoogolapple:bga-banner:2.1.9@aar'
+    compile 'cn.bingoogolapple:bga-banner:2.1.9@aar'
     compile 'com.github.JakeWharton:ViewPagerIndicator:2.4.1'
 }
